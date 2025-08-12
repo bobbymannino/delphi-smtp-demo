@@ -2,13 +2,14 @@
 
 uses
   Vcl.Forms,
-  FormMain in 'FormMain.pas' {Form1};
+  FormMain in 'FormMain.pas' {frmMain},
+  UtilSMTP in 'UtilSMTP.pas';
 
 {$R *.res}
 
 begin
   Application.Initialize;
   Application.MainFormOnTaskbar := True;
-  Application.CreateForm(TForm1, Form1);
+  Application.CreateForm(TfrmMain, frmMain);
   Application.Run;
 end.
