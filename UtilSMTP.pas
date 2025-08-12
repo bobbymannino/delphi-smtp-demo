@@ -13,7 +13,7 @@ type
     Subject: string;
     Body: string;
     From: TContact;
-    CC: TArray<TContact>;
+    CCRecipients: TArray<TContact>;
     Recipients: TArray<TContact>;
 
     procedure Send;
@@ -57,6 +57,14 @@ begin
           tmp := Recipients.Add;
           tmp.Name := Recipient.Name;
           tmp.Address := Recipient.Email;
+        end;
+
+        for var CCRecipient in AEmail.CCRecipients do
+        begin
+          var
+          tmp := CCList.Add;
+          tmp.Name := CCRecipient.Name;
+          tmp.Address := CCRecipient.Email;
         end;
       end;
       
